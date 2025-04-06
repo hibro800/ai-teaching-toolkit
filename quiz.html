@@ -1,21 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Quiz - AI Teaching Toolkit</title>
+  <title>Quiz - AI Teaching Toolkit</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 40px;
+    }
+    h1 { text-align: center; }
+    .question {
+      margin-bottom: 20px;
+    }
+    button {
+      margin-top: 10px;
+    }
+  </style>
 </head>
 <body>
-    <h1>Quiz</h1>
-    <nav>
-        <a href="index.html">Home</a> |
-        <a href="flashcard.html">Flashcards</a> |
-        <a href="quiz.html">Quiz</a> |
-        <a href="podcast.html">Podcast</a> |
-        <a href="gallery.html">Gallery</a> |
-        <a href="literature.html">Literature</a> |
-        <a href="reflect.html">Reflection</a> |
-        <a href="bonus.html">Bonus</a> |
-        <a href="exit.html">Exit</a>
-    </nav>
-    <p>Placeholder content for the quiz page.</p>
+  <h1>AI Quiz</h1>
+
+  <div class="question">
+    <p><strong>1. What is AI?</strong></p>
+    <input type="radio" name="q1" value="a"> A robot only<br>
+    <input type="radio" name="q1" value="b"> A machine that mimics human intelligence<br>
+    <input type="radio" name="q1" value="c"> A spaceship<br>
+  </div>
+
+  <div class="question">
+    <p><strong>2. Which one is an AI tool?</strong></p>
+    <input type="radio" name="q2" value="a"> Paint<br>
+    <input type="radio" name="q2" value="b"> Calculator<br>
+    <input type="radio" name="q2" value="c"> ChatGPT<br>
+  </div>
+
+  <button onclick="checkAnswers()">Submit</button>
+
+  <p id="result"></p>
+
+  <script>
+    function checkAnswers() {
+      let score = 0;
+      if (document.querySelector('input[name="q1"]:checked')?.value === 'b') score++;
+      if (document.querySelector('input[name="q2"]:checked')?.value === 'c') score++;
+
+      document.getElementById("result").textContent = "You scored " + score + " out of 2.";
+    }
+  </script>
 </body>
 </html>

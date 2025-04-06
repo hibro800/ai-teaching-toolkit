@@ -1,19 +1,56 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Flashcards - AI Teaching Toolkit</title>
+  <meta charset="UTF-8">
+  <title>AI Flashcards</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+    .flashcard {
+      width: 300px;
+      height: 200px;
+      margin: 0 auto;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 20px;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #f0f0f0;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
   <h1>AI Flashcards</h1>
-  <p>Use these flashcards to review key concepts in Artificial Intelligence:</p>
+  <div class="flashcard" onclick="flipCard()">
+    <span id="cardText">What is AI?</span>
+  </div>
 
-  <ul>
-    <li><strong>AI:</strong> Machines performing tasks that normally require human intelligence.</li>
-    <li><strong>Machine Learning:</strong> A type of AI that learns from data.</li>
-    <li><strong>Neural Network:</strong> A model inspired by the human brain, used in deep learning.</li>
-    <li><strong>Chatbot:</strong> A computer program that simulates conversation with users.</li>
-  </ul>
+  <script>
+    const cards = [
+      { question: "What is AI?", answer: "Artificial Intelligence" },
+      { question: "What is Machine Learning?", answer: "A subset of AI that learns from data" },
+      { question: "What does NLP stand for?", answer: "Natural Language Processing" }
+    ];
 
-  <a href="index.html">← Back to Home</a>
+    let currentCard = 0;
+    let showingQuestion = true;
+
+    function flipCard() {
+      const card = document.getElementById('cardText');
+      if (showingQuestion) {
+        card.textContent = cards[currentCard].answer;
+      } else {
+        currentCard = (currentCard + 1) % cards.length;
+        card.textContent = cards[currentCard].question;
+      }
+      showingQuestion = !showingQuestion;
+    }
+  </script>
 </body>
 </html>
